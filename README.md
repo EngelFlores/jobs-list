@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Requirements
 - [Node.js](https://nodejs.org/en/download/)
+- Add .env in the project with the API url like in the example .env.example
 
 ## Available Scripts
 
