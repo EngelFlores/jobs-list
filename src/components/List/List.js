@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getJobs } from "../../api/jobsApi";
 
+import { Row } from "../Row/Row"
+
 import "./List.css"
 
 export const List = () => {
@@ -9,17 +11,25 @@ export const List = () => {
   useEffect(() => {
     const getData = async () => {
       const initialData = await getJobs();
-      console.log(initialData.data)
       setData(initialData.data)
     }
     getData()
   }, [])
 
   return (
-    <div>
+    <div className="list">
       {data?.map(job => {
         return (
-          <>{job.title}</>
+          <Row
+          key={job.id}
+          jobTitle={job.title} 
+          employmentType={job.employment_type}
+          url={job.urls.ad}
+          industry={job.company.industry}
+          companyName={job.company.name}
+          experience={job.experience}
+          locations={job.locations}
+          ></Row>
         )
       })
       }</div>
